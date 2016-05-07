@@ -11,7 +11,7 @@ MAINTAINER Yale Huang <calvino.huang@gmail.com>
 RUN apt-get -y update && apt-get -y upgrade
 
 RUN apt-get install wget -y
-RUN wget -O /root/kcptun-linux-amd64.tar.gz https://github.com/xtaci/kcptun/releases/download/v20160506/kcptun-linux-amd64-20160506.tar.gz
+RUN wget -O /root/kcptun-linux-amd64.tar.gz https://github.com/xtaci/kcptun/releases/download/v20160507/kcptun-linux-amd64-20160507.tar.gz
 RUN mkdir -p /opt/kcptun && cd /opt/kcptun && tar xvfz /root/kcptun-linux-amd64.tar.gz
 
 EXPOSE 1083/tcp
