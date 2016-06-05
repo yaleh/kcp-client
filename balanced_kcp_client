@@ -1,0 +1,4 @@
+#!/bin/sh
+
+PEN_PORT=1083 /generate_supervisord_conf >/etc/supervisord.conf
+/usr/bin/supervisord
