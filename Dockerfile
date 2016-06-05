@@ -11,7 +11,7 @@ MAINTAINER Yale Huang <calvino.huang@gmail.com>
 RUN apk add --update wget && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /opt/kcptun && \
-	wget -O /root/kcptun-linux-amd64.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20160524/kcptun-linux-amd64-20160524.tar.gz && \
+	wget -O /root/kcptun-linux-amd64.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20160605/kcptun-linux-amd64-20160605.tar.gz && \
 	cd /opt/kcptun && \
 	tar xvfz /root/kcptun-linux-amd64.tar.gz client_linux_amd64 && \
 	rm /root/kcptun-linux-amd64.tar.gz
