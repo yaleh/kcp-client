@@ -17,7 +17,7 @@ RUN wget http://siag.nu/pub/pen/pen-0.33.1.tar.gz && \
 	rm -rf /pen-0.33.1.tar.gz /pen-0.33.1
 
 RUN mkdir -p /opt/kcptun && \
-	wget -O /root/kcptun-linux-amd64.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20160623/kcptun-linux-amd64-20160623.tar.gz && \
+	wget -O /root/kcptun-linux-amd64.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20160811/kcptun-linux-amd64-20160811.tar.gz && \
 	cd /opt/kcptun && \
 	tar xvfz /root/kcptun-linux-amd64.tar.gz client_linux_amd64 && \
 	rm /root/kcptun-linux-amd64.tar.gz
