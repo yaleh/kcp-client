@@ -11,7 +11,7 @@ MAINTAINER Yale Huang <calvino.huang@gmail.com>
 RUN apk add --update wget && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /opt/kcptun && \
-	wget -O /root/kcptun-linux-arm.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20160523/kcptun-linux-arm-20160523.tar.gz && \
+	wget -O /root/kcptun-linux-arm.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20160811/kcptun-linux-arm-20160811.tar.gz && \
 	cd /opt/kcptun && \
 	tar xvfz /root/kcptun-linux-arm.tar.gz client_linux_arm7 && \
 	rm /root/kcptun-linux-arm.tar.gz
