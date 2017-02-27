@@ -22,6 +22,8 @@ RUN mkdir -p /opt/kcptun && \
 	tar xvfz /root/kcptun-linux-amd64.tar.gz client_linux_amd64 && \
 	rm /root/kcptun-linux-amd64.tar.gz
 
+RUN apk del wget make gcc g++
+
 COPY balanced_kcp_client /balanced_kcp_client
 COPY generate_supervisord_conf /generate_supervisord_conf
 
