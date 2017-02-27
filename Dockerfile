@@ -15,12 +15,12 @@ RUN wget http://siag.nu/pub/pen/pen-0.33.1.tar.gz && \
         cd pen-0.33.1/ && \
         ./configure && make && make install && \
         rm -rf /pen-0.33.1.tar.gz /pen-0.33.1
-
 RUN mkdir -p /opt/kcptun && \
-        wget -O /root/kcptun-linux-arm.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20160811/kcptun-linux-arm-20160811.tar.gz && \
+        wget -O /root/kcptun-linux-arm.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20161009/kcptun-linux-arm-20161009.tar.gz && \
         cd /opt/kcptun && \
         tar xvfz /root/kcptun-linux-arm.tar.gz client_linux_arm7 && \
         rm /root/kcptun-linux-arm.tar.gz
+RUN apk del wget make gcc g++
 
 COPY balanced_kcp_client /balanced_kcp_client
 COPY generate_supervisord_conf /generate_supervisord_conf
