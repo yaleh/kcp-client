@@ -16,7 +16,7 @@ RUN wget http://siag.nu/pub/pen/pen-0.33.1.tar.gz && \
         ./configure && make && make install && \
         rm -rf /pen-0.33.1.tar.gz /pen-0.33.1
 RUN mkdir -p /opt/kcptun && \
-        wget -O /root/kcptun-linux-arm.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20170930/kcptun-linux-arm-20170930.tar.gz && \
+        wget -O /root/kcptun-linux-arm.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20171021/kcptun-linux-arm-20171021.tar.gz && \
         cd /opt/kcptun && \
         tar xvfz /root/kcptun-linux-arm.tar.gz client_linux_arm7 && \
         rm /root/kcptun-linux-arm.tar.gz
