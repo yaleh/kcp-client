@@ -15,7 +15,7 @@ RUN apk add --update wget make gcc g++ supervisor && rm -rf /var/cache/apk/* && 
 	./configure && make && make install && \
 	rm -rf /pen-0.33.1.tar.gz /pen-0.33.1 && \
 	mkdir -p /opt/kcptun && \
-	wget -O /root/kcptun-linux-amd64.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20170221/kcptun-linux-amd64-20170221.tar.gz && \
+	wget -O /root/kcptun-linux-amd64.tar.gz --no-check-certificate https://github.com/xtaci/kcptun/releases/download/v20171021/kcptun-linux-amd64-20171021.tar.gz && \
 	cd /opt/kcptun && \
 	tar xvfz /root/kcptun-linux-amd64.tar.gz client_linux_amd64 && \
 	rm /root/kcptun-linux-amd64.tar.gz && \
