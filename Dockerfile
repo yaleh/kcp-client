@@ -21,7 +21,7 @@ RUN apk --no-cache add --virtual .build-dep make gcc g++ && \
 
 RUN apk --no-cache add --virtual .wget-dep wget && \
   mkdir -p /opt/kcptun && \
-	wget --no-check-certificate -O /root/kcptun-linux-amd64.tar.gz https://github.com/xtaci/kcptun/releases/download/v20171021/kcptun-linux-amd64-20171021.tar.gz && \
+	wget --no-check-certificate -O /root/kcptun-linux-amd64.tar.gz https://github.com/xtaci/kcptun/releases/download/v20180305/kcptun-linux-amd64-20180305.tar.gz && \
 	cd /opt/kcptun && \
 	tar xvfz /root/kcptun-linux-amd64.tar.gz client_linux_amd64 && \
 	rm /root/kcptun-linux-amd64.tar.gz && \
@@ -31,7 +31,7 @@ COPY balanced_kcp_client /balanced_kcp_client
 COPY generate_supervisord_conf /generate_supervisord_conf
 
 ENV SERVER=127.0.0.1 SERVER_PORT=4000 KCP_PASSWORD=password MTU=1350 SNDWND=128 RCVWND=1024 \
-	MODE=fast SERVER_COUNT=1
+	MODE=fast SERVER_COUNT=5
 EXPOSE 1083/tcp
 
 CMD /balanced_kcp_client
