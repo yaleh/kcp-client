@@ -3,7 +3,21 @@
 KCP_PORT_MIN=2000
 let KCP_PORT_MAX=$KCP_PORT_MIN+SERVER_COUNT-1
 
-cat << EOF
+if [ $SERVER_COUNT -eq 1 ]; then
+
+		cat << EOF
+[supervisord]
+nodaemon=true
+
+[program:kcptun]
+command=/opt/kcptun/client_linux_amd64 -r $SERVER:$SERVER_PORT -l ":$PEN_PORT" --key "${KCP_PASSWORD}" --mtu $MTU \
+	--sndwnd $SNDWND --rcvwnd $RCVWND --mode $MODE
+autorestart=true
+EOF
+
+else
+
+	cat << EOF
 [supervisord]
 nodaemon=true
 
@@ -11,21 +25,23 @@ nodaemon=true
 autorestart=true
 EOF
 
-echo -n "command=/usr/local/bin/pen -r -x 2000 -f $PEN_PORT "
-for P in $(seq $KCP_PORT_MIN $KCP_PORT_MAX); do
-	echo -n "127.0.0.1:$P "
-done
+	echo -n "command=/usr/local/bin/pen -r -x 2000 -f $PEN_PORT "
+	for P in $(seq $KCP_PORT_MIN $KCP_PORT_MAX); do
+		echo -n "127.0.0.1:$P "
+	done
 
-echo
-echo
+	echo
+	echo
 
-for P in $(seq $KCP_PORT_MIN $KCP_PORT_MAX); do
-	cat << EOF
+	for P in $(seq $KCP_PORT_MIN $KCP_PORT_MAX); do
+		cat << EOF
 [program:kcptun_$P]
 command=/opt/kcptun/client_linux_amd64 -r $SERVER:$SERVER_PORT -l ":$P" --key "${KCP_PASSWORD}" --mtu $MTU \
 	--sndwnd $SNDWND --rcvwnd $RCVWND --mode $MODE
 autorestart=true
 
 EOF
-done
 
+	done
+
+fi
