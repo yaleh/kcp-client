@@ -30,8 +30,8 @@ RUN apk --no-cache add --virtual .wget-dep wget && \
 COPY balanced_kcp_client /balanced_kcp_client
 COPY generate_supervisord_conf /generate_supervisord_conf
 
-ENV SERVER=127.0.0.1 SERVER_PORT=4000 KCP_PASSWORD=password MTU=1350 SNDWND=128 RCVWND=1024 \
-	MODE=fast SERVER_COUNT=5
+ENV SERVER=127.0.0.1 SERVER_PORT=4000 CRYPT=aes KCP_PASSWORD=password MTU=1350 SNDWND=128 RCVWND=1024 \
+	MODE=fast CONN=1 SERVER_COUNT=5
 EXPOSE 1083/tcp
 
 CMD /balanced_kcp_client
