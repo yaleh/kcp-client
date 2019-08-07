@@ -21,7 +21,7 @@ RUN apk --no-cache add --virtual .build-dep make gcc g++ && \
 
 RUN apk --no-cache add --virtual .wget-dep wget && \
   mkdir -p /opt/kcptun && \
-	wget --no-check-certificate -O /root/kcptun-linux-amd64.tar.gz https://github.com/xtaci/kcptun/releases/download/v20190714/kcptun-linux-amd64-20190714.tar.gz && \
+	wget --no-check-certificate -O /root/kcptun-linux-amd64.tar.gz https://github.com/xtaci/kcptun/releases/download/v20190725/kcptun-linux-amd64-20190725.tar.gz && \
 	cd /opt/kcptun && \
 	tar xvfz /root/kcptun-linux-amd64.tar.gz client_linux_amd64 && \
 	rm /root/kcptun-linux-amd64.tar.gz && \
