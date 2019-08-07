@@ -12,11 +12,11 @@ RUN apk --no-cache add --update supervisor
 
 RUN apk --no-cache add --virtual .build-dep make gcc g++ && \
   rm -rf /var/cache/apk/* && \
-        wget http://siag.nu/pub/pen/pen-0.33.1.tar.gz && \
-	tar xvfz pen-0.33.1.tar.gz && \
-	cd pen-0.33.1/ && \
+        wget http://siag.nu/pub/pen/pen-0.34.1.tar.gz && \
+	tar xvfz pen-0.34.1.tar.gz && \
+	cd pen-0.34.1/ && \
 	./configure && make && make install && \
-	rm -rf /pen-0.33.1.tar.gz /pen-0.33.1 && \
+	rm -rf /pen-0.34.1.tar.gz /pen-0.34.1 && \
 	apk del .build-dep
 
 RUN apk --no-cache add --virtual .wget-dep wget && \
