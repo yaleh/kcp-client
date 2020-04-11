@@ -10,8 +10,9 @@ if [ $SERVER_COUNT -eq 1 ]; then
 nodaemon=true
 
 [program:kcptun]
-command=/opt/kcptun/client_linux_amd64 -r $SERVER:$SERVER_PORT -l ":$PEN_PORT" --key "${KCP_PASSWORD}" --mtu $MTU \
-	--sndwnd $SNDWND --rcvwnd $RCVWND --mode $MODE --crypt $CRYPT --conn $CONN
+command=/opt/kcptun/client_linux_amd64 -r $SERVER:$SERVER_PORT -l ":$PEN_PORT" --key "${KCP_PASSWORD}" \
+	--mtu $MTU --mode $MODE --crypt $CRYPT --conn $CONN \
+	--sndwnd $SNDWND --rcvwnd $RCVWND --datashard $DATASHARD --parityshard $PARITYSHARD
 autorestart=true
 EOF
 
@@ -36,8 +37,9 @@ EOF
 	for P in $(seq $KCP_PORT_MIN $KCP_PORT_MAX); do
 		cat << EOF
 [program:kcptun_$P]
-command=/opt/kcptun/client_linux_amd64 -r $SERVER:$SERVER_PORT -l ":$P" --key "${KCP_PASSWORD}" --mtu $MTU \
-	--sndwnd $SNDWND --rcvwnd $RCVWND --mode $MODE --crypt $CRYPT --conn $CONN
+command=/opt/kcptun/client_linux_amd64 -r $SERVER:$SERVER_PORT -l ":$P" --key "${KCP_PASSWORD}" \
+	--mtu $MTU --mode $MODE --crypt $CRYPT --conn $CONN \
+	--sndwnd $SNDWND --rcvwnd $RCVWND --datashard $DATASHARD --parityshard $PARITYSHARD
 autorestart=true
 
 EOF
